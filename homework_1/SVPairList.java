@@ -89,7 +89,7 @@ class PairList extends Iterable<SVPair>
 
 	}
 	//sets the order of the pairs in the list to SVPair.UP, SVPair.DOWN, or SVPair.UNORDERED. The list is resorted if necessary: O(1) or O(n lg n)
-	public void setOrder();
+	public void setOrder(int order);
 	{
 	
 	}
