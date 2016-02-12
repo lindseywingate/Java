@@ -8,8 +8,10 @@ class SVPairList implements Iterable<SVPair>, PairList
 	private int size;
 	
 	public SVPairList 
-	set default key and default order
+	//set default key and default order
+	{
 
+	}
 
 	public int length()
 	{
