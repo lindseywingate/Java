@@ -72,7 +72,7 @@ class SVPairList //implements Iterable<SVPair>, PairList
 	{
 		//if list is empty
 		if (front == null)
-			return null;
+			return false;
 
 		//not in the list
 		//
@@ -89,16 +89,20 @@ class SVPairList //implements Iterable<SVPair>, PairList
 		else
 		{
 			Node curr = front;
-			while(curr.getNext() !=null && target.equals(curr.getNext().getData() == false) {
+			while(curr.getNext() !=null && target != curr.getNext().getData()) {
 				curr = curr.getNext();
 			}
 			if (curr.getNext() == null)
-				return null;
+				return false;
 			else {
-				Node temp = curr.getNext().getNext();
-				Node output = curr.getNext();
-				curr.setNext(temp);
-				output.setNext(null);
+				Node one = curr;
+				Node two = curr.getNext();
+				Node three = curr.getNext().getNext();	
+				one.setNext(three);
+				three.setLast(one);
+				two.setNext(null);
+				two.setLast(null);
+
 				return true;	
 			}
 		}
