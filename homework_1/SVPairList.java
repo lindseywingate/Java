@@ -1,7 +1,8 @@
 import java.util.*;
 import java.io.*;
+import java.lang.*;
 
-class SVPairList implements Iterable<SVPair>, PairList
+class SVPairList //implements Iterable<SVPair>, PairList
 {
 	private Node front = null;
 	private int size;
@@ -16,6 +17,9 @@ class SVPairList implements Iterable<SVPair>, PairList
 	{
 		int size = 0;
 		Node curr = front;
+		if (curr == null) {
+			return 0;
+		}
 		while(curr.getNext() != null) {
 			curr = curr.getNext();
 			size++;
@@ -25,9 +29,13 @@ class SVPairList implements Iterable<SVPair>, PairList
 
 	public SVPair getElementAt(int index)
 	{
-		int n = 0;
 		Node target = front;
-		while (n<index) {
+		int n = 1;
+		if (target == null)
+			return null;
+		while (n!=index) {
+			if (target == null)
+				return null;
 			target = target.getNext();
 			n++;
 		}
@@ -49,21 +57,53 @@ class SVPairList implements Iterable<SVPair>, PairList
 			while (curr.getNext() !=null) {
 				curr = curr.getNext();
 			}			
-			curr.setNext(new newstuff(p));
+			curr.setNext(newstuff);
 			front = newstuff;
 		}
+		return true;
 	}
 		
-	public void addAll(PairList others)
+/*	public void addAll(PairList others)
 	{
 
 	}
-
+*/
 	public boolean delete(SVPair target)
 	{
+		//if list is empty
+		if (front == null)
+			return null;
 
+		//not in the list
+		//
+
+		//if front is to be deleted
+		if (front.getData().equals(target)) {
+			Node curr = front;
+			front = front.getNext();
+			//disconnects from list
+			curr.setNext(null);
+			return true;
+		}
+		//it is somewhere in the middle or end
+		else
+		{
+			Node curr = front;
+			while(curr.getNext() !=null && target.equals(curr.getNext().getData() == false) {
+				curr = curr.getNext();
+			}
+			if (curr.getNext() == null)
+				return null;
+			else {
+				Node temp = curr.getNext().getNext();
+				Node output = curr.getNext();
+				curr.setNext(temp);
+				output.setNext(null);
+				return true;	
+			}
+		}
 	}
-
+/*
 	public void deleteAll(PairList others)
 	{
 
@@ -92,5 +132,5 @@ class SVPairList implements Iterable<SVPair>, PairList
 	{
 
 	}
-
+*/
 }
