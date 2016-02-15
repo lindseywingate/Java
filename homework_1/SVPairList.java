@@ -117,12 +117,23 @@ class SVPairList //implements Iterable<SVPair>, PairList
 	{
 
 	}
-
+*/
 	public boolean contains(SVPair target)
 	{
-	
+		Node curr = front;
+		if (target == null) {
+			System.out.println("Target is null.\n");
+			return false;
+		}
+		while (curr != null) {
+			if(curr.getData()==target)
+				return true;
+			else
+				curr = curr.getNext();
+		}
+		return false;	
 	}
-
+/*
 	public void clear()
 	{
 	}
