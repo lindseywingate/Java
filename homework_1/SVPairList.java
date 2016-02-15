@@ -146,10 +146,24 @@ class SVPairList //implements Iterable<SVPair>, PairList
 	{
 
 	}
-
-	public Iterator<SVPair> iterator()
-	{
-
-	}
 */
+	public Iterator<SVPair> iterator() {
+		 Iterator<SVPair> it = new Iterator<SVPair>() {
+			
+			Node current = front;
+			public boolean hasNext() {
+				if (current.getNext() !=null)
+					return true;
+				//return (current != null);
+			}
+			
+			public SVPair next() {
+				return current.getNext().getData();
+			}		
+
+			public remove() {
+			
+			}
+		}
+	}
 }
