@@ -15,12 +15,12 @@ class SVPairList //implements Iterable<SVPair>, PairList
 
 	public int length()
 	{
-		int size = 0;
+		int size = 0; 
 		Node curr = front;
 		if (curr == null) {
 			return 0;
 		}
-		while(curr.getNext() != null) {
+		while(curr != null) {
 			curr = curr.getNext();
 			size++;
 		}
@@ -30,16 +30,20 @@ class SVPairList //implements Iterable<SVPair>, PairList
 	public SVPair getElementAt(int index)
 	{
 		Node target = front;
-		int n = 1;
+		int n = 0;
 		if (target == null)
 			return null;
-		while (n!=index) {
-			if (target == null)
-				return null;
-			target = target.getNext();
-			n++;
+		if (index > length()-1)
+			return null;
+		else {
+			if(index == 0)
+				return target.getData();
+			while(n<index && target.getNext() != null) {
+				target = target.getNext();
+				n++;
+			}
 		}
-		return target.getData();
+		return target.getData(); 
 	}
 
 	public boolean add(SVPair p)
@@ -49,7 +53,6 @@ class SVPairList //implements Iterable<SVPair>, PairList
 			return false;
 		if (front == null) {
 			front = newstuff;
-			newstuff.setLast(front);
 			return true;
 		}
 		else {
@@ -58,7 +61,7 @@ class SVPairList //implements Iterable<SVPair>, PairList
 				curr = curr.getNext();
 			}			
 			curr.setNext(newstuff);
-			front = newstuff;
+			newstuff.setLast(curr);
 		}
 		return true;
 	}
@@ -95,6 +98,7 @@ class SVPairList //implements Iterable<SVPair>, PairList
 			if (curr.getNext() == null)
 				return false;
 			else {
+				System.out.println("FOUND! WILL DELETE");
 				Node one = curr;
 				Node two = curr.getNext();
 				Node three = curr.getNext().getNext();	
