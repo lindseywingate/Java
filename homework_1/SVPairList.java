@@ -78,9 +78,6 @@ class SVPairList //implements Iterable<SVPair>, PairList
 		if (front == null)
 			return false;
 
-		//not in the list
-		//
-
 		//if front is to be deleted
 		if (front.getData().equals(target)) {
 			Node curr = front;
@@ -133,11 +130,13 @@ class SVPairList //implements Iterable<SVPair>, PairList
 		}
 		return false;	
 	}
-/*
 	public void clear()
 	{
+		while(length() != 0) {
+			delete(front.getData());		
+		}		
 	}
-
+/*
 	public void setKey(int key)
 	{
 	
