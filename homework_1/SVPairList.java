@@ -1,3 +1,4 @@
+/*Code written by Lindsey Wingate*/
 import java.util.*;
 import java.io.*;
 import java.lang.*;
