@@ -109,10 +109,10 @@ class SVPairList //implements Iterable<SVPair>, PairList
 			}
 		}
 	}
-/*
-	public void deleteAll(PairList others)
-	{
 
+/*	public void deleteAll(PairList others)
+	{
+	
 	}
 */
 	public boolean contains(SVPair target)
@@ -136,34 +136,52 @@ class SVPairList //implements Iterable<SVPair>, PairList
 			delete(front.getData());		
 		}		
 	}
-/*
+
 	public void setKey(int key)
 	{
-	
-	}
+		int a, b;
+		Node curr = front;
+		if (order == 0) {
+			//use insertion sort
+			while(a<length()-1) {
+				b = a+1;
+				while(b<length()-1) {
+					if(curr.getSize()>(curr.getNext().getSize()) {
+						
+					}
+				}	
+			}
 
+		}	
+		else {
+			
+		}	
+
+	}
+/*
 	public void setOrder(int order)
 	{
-
 	}
-*/
+
+/*
 	public Iterator<SVPair> iterator() {
 		 Iterator<SVPair> it = new Iterator<SVPair>() {
 			
 			Node current = front;
-			public boolean hasNext() {
-				if (current.getNext() !=null)
+			public boolean hasNext(SVPair a) {
+				if (a.getNext() !=null)
 					return true;
 				//return (current != null);
 			}
 			
-			public SVPair next() {
+			public SVPair next(SVPair current) {
 				return current.getNext().getData();
 			}		
 
 			public remove() {
-			
+				throw new UnsupportedOperationException();	
 			}
 		}
 	}
+*/
 }
