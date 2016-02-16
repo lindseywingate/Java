@@ -137,7 +137,7 @@ class SVPairList //implements Iterable<SVPair>, PairList
 		}		
 	}
 
-	public void setKey(int key)
+/*	public void setKey(int key)
 	{
 		int a, b;
 		Node curr = front;
