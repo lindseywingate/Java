@@ -57,7 +57,41 @@ class QuickSort extends DecisionAlgorithm
 	public void sortSet()
 	{
 		//put quicksort here
-	}	
+	  if (me.size()==0){	  
+		 return null;
+	  }
+	//create arrays that don't hold objects
+	ArrayList<Pet>top = new ArrayList<Pet>();	
+	ArrayList<Pet>bottom = new ArrayList<Pet>();
+
+	int pivot = me.get(0);
+	for(int b = 1; b< me.size(); b++) {
+		if(me.get(b).getOwnerSatisfaction()>pivot.getOwnerSatisfaction()) {
+			top.add(me.get(b));
+	    }
+	    else
+			bottom.add(me.get(b));
+		}
+	    ArrayList<Pet>answer = new ArrayList<Pet>();
+	
+	    bottom = HappyQuickSort(bottom);
+
+	if(bottom !=null){
+		for(int c = 0; c<bottom.size(); c++) 
+		{
+		answer.add(bottom.get(c));
+	    }
+	}
+		answer.add(pivot);
+	
+		top = HappyQuickSort(top);
+	if(top!=null) {
+		for(int d = 0; d<top.size(); d++) {
+			answer.add(top.get(d));
+	   } 
+	}
+	return answer;
+}	
 
 	private boolean orderCheck()
 	{
