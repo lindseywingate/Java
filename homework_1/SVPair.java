@@ -1,3 +1,5 @@
+//The SVPair list allows the users to store data within a Node in a PairList.
+
 import java.util.*;
 import java.io.*;
 
@@ -11,34 +13,34 @@ class SVPair
 	
 	long size;
 	long value;
-	
+//constructor: creates an SVPair with long variables	
 	public SVPair(long s, long v)
 	{
 	   size = s;
 	   value = v;
 	}
-	
+//constructor: creates an SVPair with integer variables
 	public SVPair(int s, int v)
 	{
 	   size = s;
 	   value = v;
 	}  
-	
+//returns the size variable
 	public long getSize()
 	{
 	   return size;
 	}
-	
+//returns the value variable
 	public long getValue()
 	{
 	   return value;
 	}
-
+//prints the size and value variables
 	public String toString()
 	{
 	   return "(" + size + "," + value + ")";
 	}
-
+//allows the comparison of two SVPairs
 	public boolean lessThan(SVPair other, int key)
 	{
 		if (key == VALUE)
@@ -56,7 +58,7 @@ class SVPair
 			else return false;
 		}
 	}                
-
+//verifies of two SVPair contents are the same
 	public boolean equals(SVPair other)
 	{
 		return (size == other.size) && (value == other.value);

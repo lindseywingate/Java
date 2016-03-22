@@ -1,3 +1,4 @@
+//The SVPairList class implements a doubly linked list of SVPair's within nodes. 
 /*Code written by Lindsey Wingate*/
 import java.util.*;
 import java.io.*;
@@ -13,7 +14,7 @@ class SVPairList //implements Iterable<SVPair>, PairList
 	{
 
 	}
-
+//returns the number of nodes in the list
 	public int length()
 	{
 		int size = 0; 
@@ -27,7 +28,7 @@ class SVPairList //implements Iterable<SVPair>, PairList
 		}
 		return size;
 	}
-
+//allows the user to search with an index and returns the corresponding SVPair. Requires the length() method
 	public SVPair getElementAt(int index)
 	{
 		Node target = front;
@@ -46,7 +47,7 @@ class SVPairList //implements Iterable<SVPair>, PairList
 		}
 		return target.getData(); 
 	}
-
+//adds an SVPair (and as a result a node) to the doubly linked list
 	public boolean add(SVPair p)
 	{
 		Node newstuff = new Node(p);
@@ -72,6 +73,7 @@ class SVPairList //implements Iterable<SVPair>, PairList
 
 	}
 */
+//deletes the target SVpair (and as a result node) from the SVPairList
 	public boolean delete(SVPair target)
 	{
 		//if list is empty
@@ -115,6 +117,7 @@ class SVPairList //implements Iterable<SVPair>, PairList
 	
 	}
 */
+//returns true of the SVPair is in the list and false if it is not
 	public boolean contains(SVPair target)
 	{
 		Node curr = front;
@@ -137,6 +140,18 @@ class SVPairList //implements Iterable<SVPair>, PairList
 		}		
 	}
 
+	public boolean show()
+	{
+		Node curr = front;
+		if (curr == null) {
+			return false; 
+		}
+		while(curr != null) {
+			System.out.println(curr.getData().toString());
+			curr = curr.getNext();
+		}
+		return true;
+	}
 /*	public void setKey(int key)
 	{
 		int a, b;

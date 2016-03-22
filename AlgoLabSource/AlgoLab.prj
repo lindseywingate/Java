@@ -1,0 +1,5 @@
+project "Partition Problem"
+generator IntSetGenerator
+parameter N "Set Size"
+parameter M "Maximum"
+
