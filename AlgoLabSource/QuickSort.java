@@ -56,42 +56,41 @@ class QuickSort extends DecisionAlgorithm
 
 	public void sortSet()
 	{
-		//put quicksort here
-	  if (me.size()==0){	  
-		 return null;
-	  }
+		int nextvalue, pos;
 	//create arrays that don't hold objects
-	ArrayList<Pet>top = new ArrayList<Pet>();	
-	ArrayList<Pet>bottom = new ArrayList<Pet>();
+	List top = new ArrayList();	
+	List bottom = new ArrayList();
 
-	int pivot = me.get(0);
-	for(int b = 1; b< me.size(); b++) {
-		if(me.get(b).getOwnerSatisfaction()>pivot.getOwnerSatisfaction()) {
-			top.add(me.get(b));
+	int length = intset.length;
+	int pivot = intset[length-1];
+	 //insert last value of array here;
+	for(int b = 1; b< intset.size; b++) {
+		if(intset[b]>pivot) {
+			top.add(intset[b]);
 	    }
 	    else
-			bottom.add(me.get(b));
+			bottom.add(intset[b]);
 		}
-	    ArrayList<Pet>answer = new ArrayList<Pet>();
+	    List answer = new ArrayList();
 	
-	    bottom = HappyQuickSort(bottom);
+	    bottom = sortSet(bottom);
 
-	if(bottom !=null){
-		for(int c = 0; c<bottom.size(); c++) 
-		{
-		answer.add(bottom.get(c));
-	    }
-	}
+		if(bottom !=null){
+			for(int c = 0; c<bottom.size(); c++) 
+			{
+			answer.add(bottom.get(c));
+			}
+		}
 		answer.add(pivot);
 	
-		top = HappyQuickSort(top);
-	if(top!=null) {
-		for(int d = 0; d<top.size(); d++) {
-			answer.add(top.get(d));
-	   } 
-	}
-	return answer;
-}	
+		top = sortSet(top);
+		if(top!=null) {
+			for(int d = 0; d<top.size(); d++) {
+				answer.add(top.get(d));
+			} 
+		}
+		return answer;
+	}	
 
 	private boolean orderCheck()
 	{
