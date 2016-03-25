@@ -1,9 +1,15 @@
+import java.util.*;
+import java.lang.*;
+
 class QuickSort extends DecisionAlgorithm
 {
 	int [] intset;
 	long stepcount = 0;
 	int numcount = 0;
 	long setsum = 0;
+	List top = new ArrayList();	
+	List bottom = new ArrayList();
+	List answer = new ArrayList();
 
 	public QuickSort()
 	{
@@ -16,10 +22,10 @@ class QuickSort extends DecisionAlgorithm
 		numcount = iset.length;
 		intset = new int [numcount];
 		setsum = 0;
-		for(int pos=0; pos<numcount; pos++)
+		for(int p=0; p<numcount; p++)
 		{
-			inset[pos] = iset[pos];
-			setsum = setsum + intset[pos];
+			intset[p] = iset[p];
+			setsum = setsum + intset[p];
 		}
 	}
 	
@@ -54,29 +60,25 @@ class QuickSort extends DecisionAlgorithm
 		sortSet();
 	}
 
-	public void sortSet()
+	public void sortSet(List listo)
 	{
-		int nextvalue, pos;
+		int nextvalue, p;
 	//create arrays that don't hold objects
-	List top = new ArrayList();	
-	List bottom = new ArrayList();
 
-	int length = intset.length;
-	int pivot = intset[length-1];
+	int pivot = intset[0];
 	 //insert last value of array here;
-	for(int b = 1; b< intset.size; b++) {
+	for(int b=1; b<numcount; b++) {
 		if(intset[b]>pivot) {
 			top.add(intset[b]);
 	    }
 	    else
 			bottom.add(intset[b]);
 		}
-	    List answer = new ArrayList();
-	
+	    	
 	    bottom = sortSet(bottom);
 
 		if(bottom !=null){
-			for(int c = 0; c<bottom.size(); c++) 
+			for(int c=0; c<bottom.size(); c++) 
 			{
 			answer.add(bottom.get(c));
 			}
@@ -99,7 +101,7 @@ class QuickSort extends DecisionAlgorithm
 		for (int i=0; i<numcount-1; i++)
 		{
 			sortedsum = sortedsum + intset[i];
-			if (intset[i] > intset[i+1];
+			if (intset[i] > intset[i+1]);
 			{
 				result = false;
 				System.out.println("*** out of order");
