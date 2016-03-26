@@ -2,4 +2,7 @@ project "Partition Problem"
 generator IntSetGenerator
 parameter N "Set Size"
 parameter M "Maximum"
-
+algorithm InsertSort
+algorithm QuickSort
+algorithm RadixSort
+algorithm RandomizedQuickSort

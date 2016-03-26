@@ -56,50 +56,67 @@ class QuickSort extends DecisionAlgorithm
 	
 	public void run()
 	{
-		stepcount=0;
 		sortSet();
 	}
 
-	public void sortSet(List listo)
+	public void sortSet()
 	{
-		int nextvalue, p;
-	//create arrays that don't hold objects
-
-	int pivot = intset[0];
-	 //insert last value of array here;
-	for(int b=1; b<numcount; b++) {
-		if(intset[b]>pivot) {
-			top.add(intset[b]);
-	    }
-	    else
-			bottom.add(intset[b]);
-		}
-	    	
-	    bottom = sortSet(bottom);
-
-		if(bottom !=null){
-			for(int c=0; c<bottom.size(); c++) 
-			{
-			answer.add(bottom.get(c));
-			}
-		}
-		answer.add(pivot);
+		quicksortme(intset);
+	}
 	
-		top = sortSet(top);
-		if(top!=null) {
-			for(int d = 0; d<top.size(); d++) {
-				answer.add(top.get(d));
-			} 
+	public int[] quicksortme(int[] sortme)
+	{
+		if (sortme.length == 0)
+			return null;
+
+		int pivot = sortme[0];
+		int [] top = new int[numcount-1];
+		int [] bottom = new int[numcount-1];	
+	
+		for (int b=1; b<sortme.length; b++)
+		{
+			stepcount++;
+			if (sortme[b]>pivot)
+				top[b] = sortme[b];
+			else
+				bottom[b]= sortme[b];
+		}
+		
+		int[] answer = new int[numcount];
+	
+		bottom = quicksortme(bottom);
+
+		int bottom_size = bottom.length;
+		int top_size = top.length;
+
+		if(bottom!=null)
+		{
+			for(int c=0; c<bottom_size; c++)
+				answer[c] = bottom[c];
+				stepcount++;
+		}	
+		answer[numcount-1] = pivot;
+	
+		int size = bottom.length;	
+	
+		top = quicksortme(top);
+		if(top!=null) 
+		{
+			for(int d=0; d<top_size; d++) 
+				answer[d+size] = top[d];
+				stepcount++;
 		}
 		return answer;
-	}	
-
+	}
+	
 	private boolean orderCheck()
 	{
 		long sortedsum = 0;
 		boolean result = true;
 		for (int i=0; i<numcount-1; i++)
 		{
+			//increment stepcount
+			stepcount++;
 			sortedsum = sortedsum + intset[i];
 			if (intset[i] > intset[i+1]);
 			{
