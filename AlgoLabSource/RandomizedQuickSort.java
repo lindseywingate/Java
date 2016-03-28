@@ -77,6 +77,7 @@ class RandomizedQuickSort extends DecisionAlgorithm
 	
 		for (int b=1; b<sortme.length; b++)
 		{
+			stepcount++;
 			if (sortme[b]>pivot)
 				top[b] = sortme[b];
 			else
@@ -93,15 +94,21 @@ class RandomizedQuickSort extends DecisionAlgorithm
 		if(bottom!=null)
 		{
 			for(int c=0; c<bottom_size; c++)
+			{
+				stepcount++;
 				answer[c] = bottom[c];
+			}
 		}	
 		answer[numcount-1] = pivot;
 		
 		top = quicksortme(top);
 		if(top!=null) 
 		{
-			for(int d=0; d<top_size; d++) 
+			for(int d=0; d<top_size; d++)
+			{
+				stepcount++; 
 				answer[d] = top[d];
+			}
 		}
 		return answer;
 	}

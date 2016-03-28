@@ -56,25 +56,34 @@ class RadixSort extends DecisionAlgorithm
 	
    public void sortSet()
     {
-		int x, m =intset[0], exp=1, n=intset.length;
+		int x;
+		int m =intset[0];
+		int i=1;
+		int n=intset.length;
 		int[] b = new int[10];
+		//finds biggest number in set
 		for(x=1; x<n; x++)
 			if(intset[x] > m)
 				m=intset[x];
-		while(m/exp>0)
+		//while biggest #/1 still has leftovers
+		while(m/i>0)
 		{
 			int[] bucket = new int[10];
-            //gets digit, puts in correct bins, and reassigns until in order
+			//adds how many numbers are in each bucket
 			for (x=0; x<n; x++)
-				bucket[(intset[x]/exp)%10]++;
+				bucket[(intset[x]/i)%10] = bucket[(intset[x]/i)%10]+1;
+				stepcount++;
 			for (x=1; x < 10; x++)
                 bucket[x] += bucket[x - 1];
+				stepcount++;
             for (x=n-1; x>= 0; x--)
-                b[--bucket[(intset[x] / exp) % 10]] = intset[x];
+                b[--bucket[(intset[x] / i) % 10]] = intset[x];
+				stepcount++;
             //refills array with correct order
 			for (x = 0; x < n; x++)
                 intset[x] = b[x];
-            exp *= 10;        
+				stepcount++;
+            i *= 10;        
 		}       
     }
  

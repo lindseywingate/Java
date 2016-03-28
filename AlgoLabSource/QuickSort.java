@@ -4,6 +4,7 @@ import java.lang.*;
 class QuickSort extends DecisionAlgorithm
 {
 	int [] intset;
+	long sizecount = 0;
 	long stepcount = 0;
 	int numcount = 0;
 	long setsum = 0;
@@ -72,20 +73,28 @@ class QuickSort extends DecisionAlgorithm
 		int pivot = sortme[0];
 		int [] top = new int[numcount-1];
 		int [] bottom = new int[numcount-1];	
-	
-		for (int b=1; b<sortme.length; b++)
+
+		//split the arrays
+		for (int b=0; b<sortme.length; b++)
 		{
+			int top_index = 0;
+			int bottom_index = 0;
 			stepcount++;
 			if (sortme[b]>pivot)
-				top[b] = sortme[b];
+			{
+				top[top_index] = sortme[b];
+				top_index++;
+			}
 			else
-				bottom[b]= sortme[b];
+			{
+				bottom[bottom_index]= sortme[b];
+				bottom_index++;
+			}
 		}
-		
-		int[] answer = new int[numcount];
-	
 		bottom = quicksortme(bottom);
-
+		top = quicksortme(top);
+	
+		int[] answer = new int[numcount];
 		int bottom_size = bottom.length;
 		int top_size = top.length;
 
@@ -99,7 +108,6 @@ class QuickSort extends DecisionAlgorithm
 	
 		int size = bottom.length;	
 	
-		top = quicksortme(top);
 		if(top!=null) 
 		{
 			for(int d=0; d<top_size; d++) 

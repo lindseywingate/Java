@@ -62,7 +62,7 @@ class MergeSort extends DecisionAlgorithm
 	public int[] mergesortme(int[] listo)
 	{
 		if (listo.length==0)
-			return listo;
+			return null;
 	//split into two lists to further split if necessary	
 		int[] left = new int[listo.length/2];
 		//fill array with contents
@@ -95,6 +95,7 @@ class MergeSort extends DecisionAlgorithm
 		//compare items in split arrays to merge into one big, fat array
 		for(int i=0; i<answer.length; i++)
 		{
+			stepcount++;
 			if(r>=right.length || (l < left.length && left[l] <= right[r]))
 			{	
 				answer[x] = left[l];
