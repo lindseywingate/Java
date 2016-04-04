@@ -77,23 +77,38 @@ class MergeSort extends DecisionAlgorithm
 		for (int y=0; y<size2; y++)
 			right[y] = listo[y+size1];
 
-		//call recursively until done splitting 
-		mergesortme(left);
-		mergesortme(right);
-	
+		if(size1>1)
+			mergesortme(left);
+		if(size2>1)	
+			mergesortme(right);
+
+		int[] newlist = new int[listo.length];	
 		//merge individual splits
-		merge(left, right, listo);	
-		return listo;
+		newlist = merge(left, right, newlist);	
+		return newlist;
 	}
 
-	public void merge(int[] left, int[] right, int[] answer)
+	public int[] merge(int[] left, int[] right, int[] answer)
 	{
 		int l = 0;
 		int r = 0;
-		int x = 0;
-		
+		int i;	
+
+		for(i=0; i<answer.length; i++)
+		{
+			stepcount++;
+			if(left[l]>right[r])
+				answer[i] = left[l];
+				l++;
+			if(right[r]>left[l])
+				answer[i] = right[r];
+				r++;
+			if(right[r]==left[l])
+				answer[i] = right[r];
+				r++;
+		}	
 		//compare items in split arrays to merge into one big, fat array
-		for(int i=0; i<answer.length; i++)
+		/*for(int i=0; i<answer.length; i++)
 		{
 			stepcount++;
 			if(r>=right.length || (l < left.length && left[l] <= right[r]))
@@ -106,7 +121,8 @@ class MergeSort extends DecisionAlgorithm
 				answer[i] = right[r];
 				r++;	
 			}  
-		} 
+		}*/
+		return answer; 
 	}
 
 	private boolean orderCheck()
