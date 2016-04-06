@@ -11,7 +11,7 @@ public class BinaryTrie //implements Iterable<String>, TrieSet
 
 	public boolean add(int a)
 	{
-		Node curr = root;
+		Node curr=root;
 		//convert int back into String so can add easily digit by digit to tree
 		String a1 = Integer.toString(a);
 		int c;
@@ -28,17 +28,19 @@ public class BinaryTrie //implements Iterable<String>, TrieSet
 					curr.data = false;
 					curr = curr.right;
 				}
-				else
+				else{
 					curr = add_left(curr);
+				}
 			}
 			if(num[c]=="0"){
 				if(curr.left==null) {
 					curr.left = new Node(true);
 					curr.data = false;
-					curr=curr.left;	
+					curr = curr.left;	
 				}
-				else
+				else {
 					curr = add_right(curr);
+				}
 			}		
 		}
 		return true;
@@ -67,12 +69,36 @@ public class BinaryTrie //implements Iterable<String>, TrieSet
 	{
 
 	}
+*/
 
-	public boolean contains()
+	public boolean contains(String a)
 	{
+		Node curr = root;
+		int c;
+		String[] num = a.split("");
 
-	}
-
+		if(root==null)
+				return false;
+	
+		for(c=0; c<num.length; c++) {
+			if(num[c]=="1"){
+				if(curr.right==null)
+					return false;
+				else {
+					curr = curr.right;			
+				}
+			}
+			if(num[c]=="0"){
+				if(curr.left==null)	
+				return false;
+			}
+				else {
+					curr = curr.left;
+				}
+		}		
+		return true;
+	}	
+/*
 	public boolean remove()
 	{
 
