@@ -19,30 +19,42 @@ class BinaryTrie //implements Iterable<String>, TrieSet
 			
 		//add nodes as necessary until string added
 		for(c=0; c<num.length; c++) {
-			if(num[c]==1)
+			if(num[c]==1){
 				if (curr.right==null){
 					curr.right = new Node(true, null, null);
 					curr.data = false;
 					curr = curr.right;
 				}
 				else
-					add_left(curr);
-			if(num[c]==0)
+					curr = add_left(curr);
+			}
+			if(num[c]==0){
 				if(curr.left==null) {
 					curr.left = new Node(true, null, null);
 					curr.data = false;
 					curr=curr.left;	
-			}	
+				}
+				else
+					curr = add_right(curr);
+			}		
 		}
 	}
+	//add zerp
 	public Node add_left(Node curr)
 	{
-		
+		curr.left = new Node(true, null, null);
+		curr.data = false;
+		curr = curr.left;
+		return curr;	
 	}
 
+	//add one
 	public Node add_right(Node curr)
 	{
-
+		curr.right = new Node(true, null, null);
+		curr.data = false;
+		curr = curr.right;
+		return curr;
 
 	}
 
