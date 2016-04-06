@@ -1,29 +1,29 @@
 import java.util.*;
 import java.io.*;
 
-public class BinaryTree
+class BinaryTree //implements Iterable<String>
 {
 	public void add(String s, Node addme)
 	{
 		//error checking for s
 		String[] num = s.split("");
-		int count;
+		int count, c;
 		for(count=0; count<num.length; count++) {
-			if(num[count]!="*") {
-				if(!(num[count].equals("0") || num[count].equals("1")))
-					error_message("The number you have entered is not valid. Please enter a binary number.");
-					break;
+			if((num[count].equals("0") || num[count].equals("1") || num[count].equals("*")))
+				continue;
+			else
+				error_message("The number you have entered is not valid. Please enter a binary number.");
+				break;
 			}
-		}		
 
-		/*if(addme == null)
-			return new Node(x);
-		if(x<addme.data)
-			addme.left=add(x, addme.left);
-		else
-			addme.right=add(x, addme.right);
-		return addme;
-		*/
+			if(addme == null)
+				return new Node(null);
+			if(x<addme.data)
+				addme.left=add(addme_num, addme.left);
+			else
+				addme.right=add(addme_num, addme.right);
+			return addme;
+				
 	}	
 
 	public void delete_number(String s)
