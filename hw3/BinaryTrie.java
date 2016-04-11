@@ -47,11 +47,16 @@ public class BinaryTrie //implements Iterable<String>, TrieSet
 		}
 		return true;
 	}
-/*	public boolean clear()
+	public boolean clear()
 	{
-
+		if(root==null)
+			return true;
+		else
+			root.setZero(null);
+			root.setOne(null);
+		return true;	
 	}
-*/
+
 	public boolean contains(String a)
 	{
 		Node curr;
@@ -67,23 +72,18 @@ public class BinaryTrie //implements Iterable<String>, TrieSet
 			return false;	
 		for(c=0; c<num.length; c++) {
 			if(num[c].equals("1")){
-				System.out.println("TEST2: 1");
 				if(curr==null) {
 					return false;
 				}
 				else {
-					System.out.println("1 FOUND");
 					curr = curr.getOne();			
 				}
 			}
 			if(num[c].equals("0")){
-				System.out.println("TEST: 2");
 				if(curr==null){	
-					System.out.println("curr null");
 					return false;
 				}
 				else {
-					System.out.println("2 FOUND");
 					curr = curr.getZero();
 				}
 			}
