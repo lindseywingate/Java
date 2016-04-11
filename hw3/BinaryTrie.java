@@ -2,8 +2,8 @@ import java.util.*;
 
 public class BinaryTrie //implements Iterable<String>, TrieSet
 {
-	public Node root=null; 
-	public int size;
+	 Node root = new Node();
+	 int size;
 	
 	public BinaryTrie()
 	{
@@ -11,66 +11,65 @@ public class BinaryTrie //implements Iterable<String>, TrieSet
 
 	public boolean add(int a)
 	{
-		Node curr=root;
+		Node curr=new Node();
+		curr=root;
 		//convert int back into String so can add easily digit by digit to tree
 		String a1 = Integer.toString(a);
-		int c;
+		int c, w;
 		String[] num = a1.split("");
-			
+		
 		//add nodes as necessary until string added
 		for(c=0; c<num.length; c++) {
-			if(root==null)
-				root = new Node(true);
-				curr = root;
-			if(num[c]=="1"){
-				if (curr.right==null){
-					curr.right = new Node(true);
-					curr.data = false;
-					curr = curr.right;
+			if(num[c].equals("1")) {
+				if (curr.getOne()!=null){
+					curr=curr.one;
 				}
-				else{
-					curr = add_left(curr);
+				if (curr.getOne()==null){
+					curr.one = new Node();
+					curr.data = false;
+					curr = curr.one;
 				}
 			}
-			if(num[c]=="0"){
-				if(curr.left==null) {
-					curr.left = new Node(true);
+			if(num[c].equals("0")){
+				if(curr.getZero()==null) {
+					curr.zero = new Node();
 					curr.data = false;
-					curr = curr.left;	
+					curr = curr.zero;	
 				}
-				else {
-					curr = add_right(curr);
+				if (curr.getZero()!=null) {
+					curr=curr.zero;
 				}
 			}		
 		}
+		curr=root;
 		return true;
 	}
-	//add zerp
-	public Node add_left(Node curr)
+//these methods may not be necessary
+/*	//add zerp
+	public Node add_zero(Node curr)
 	{
-		curr.left = new Node(true);
+		curr.zero = new Node(true);
 		curr.data = false;
-		curr = curr.left;
+		curr = curr.zero;
 		return curr;	
 	}
 
 	//add one
-	public Node add_right(Node curr)
+	public Node add_one(Node curr)
 	{
-		curr.right = new Node(true);
+		curr.one = new Node(true);
 		curr.data = false;
-		curr = curr.right;
+		curr = curr.one;
 		return curr;
 
 	}
-
+*/
 /*
 	public boolean clear()
 	{
 
 	}
 */
-
 	public boolean contains(String a)
 	{
 		Node curr = root;
@@ -78,22 +77,23 @@ public class BinaryTrie //implements Iterable<String>, TrieSet
 		String[] num = a.split("");
 
 		if(root==null)
-				return false;
-	
+			return false;	
 		for(c=0; c<num.length; c++) {
 			if(num[c]=="1"){
-				if(curr.right==null)
+				System.out.println("TEST2: 1");
+				if(curr.one==null)
 					return false;
 				else {
-					curr = curr.right;			
+					curr = curr.one;			
 				}
 			}
 			if(num[c]=="0"){
-				if(curr.left==null)	
+				System.out.println("TEST: 2");
+				if(curr.zero==null)	
 				return false;
 			}
 				else {
-					curr = curr.left;
+					curr = curr.zero;
 				}
 		}		
 		return true;
