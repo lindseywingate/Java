@@ -20,7 +20,6 @@ public class TrieSetTester
 					a=reader.next();
 					test_num(a);
 					int foo = Integer.parseInt(a);
-					System.out.println("youentered a "+foo);	
 					testTree.add(foo);
 					break;	
 				case 2:
