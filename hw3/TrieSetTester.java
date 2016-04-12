@@ -19,8 +19,7 @@ public class TrieSetTester
 					System.out.println("Please enter a number to add: ");
 					a=reader.next();
 					test_num(a);
-					int foo = Integer.parseInt(a);
-					testTree.add(foo);
+					testTree.add(a);
 					break;	
 				case 2:
 					System.out.println("Please enter a number to delete: ");
