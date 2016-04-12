@@ -41,7 +41,7 @@ public class TrieSetTester
 						System.out.println("Your number is not included in the tree.");
 					break;
 				case 5:
-					//clear();
+					testTree.clear();
 					break;
 				case 6:
 					//toString();
