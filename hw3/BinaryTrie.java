@@ -16,8 +16,9 @@ public class BinaryTrie //implements Iterable<String>, TrieSet
 		int c;
 		for(c=0; c<num.length; c++) {
 			if(num[c].equals("*")) {
-				curr=addme(0, curr);
-				curr=addme(1, curr);
+				System.out.println("found a star");
+				//curr=addme(0, curr);
+				//curr=addme(1, curr);
 				continue;
 			}		
 			if(num[c].equals("1")) {
