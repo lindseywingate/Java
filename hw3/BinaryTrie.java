@@ -80,6 +80,7 @@ public class BinaryTrie //implements Iterable<String>, TrieSet
 		String[] num = a.split("");
 
 		int w;
+
 		for(w=0; w<num.length; w++) {
 			if(root==null)
 				return false;	

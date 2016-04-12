@@ -52,9 +52,7 @@ public class TrieSetTester
 					System.out.println("Please enter a valid selection from the menu.");
 					break;	
 			}
-				
 		}
-
 	}
 	public static void error_message(String err)
 	{
@@ -72,5 +70,4 @@ public class TrieSetTester
 			break;
 		}				
 	}
-
 }
