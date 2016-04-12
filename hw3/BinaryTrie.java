@@ -17,8 +17,7 @@ public class BinaryTrie //implements Iterable<String>, TrieSet
 		for(c=0; c<num.length; c++) {
 			if(num[c].equals("*")) {
 				System.out.println("found a star");
-				//curr=addme(0, curr);
-				//curr=addme(1, curr);
+				curr=addme(1, curr);
 				continue;
 			}		
 			if(num[c].equals("1")) {
@@ -79,7 +78,6 @@ public class BinaryTrie //implements Iterable<String>, TrieSet
 		Node temp;
 		temp = root;
 		String[] num = a.split("");
-
 		int w;
 
 		for(w=0; w<num.length; w++) {
@@ -106,12 +104,21 @@ public class BinaryTrie //implements Iterable<String>, TrieSet
 		}	
 			return true;	
 	}	
-/*
-	public boolean remove()
+
+	public boolean remove(String s)
 	{
-
+		Node point;
+		point=root;
+		String[] num=s.split("");
+		
+		//if num is not in tree
+		if(contains(s)==false)	
+			return false;
+		
+		
+		return true;		
 	}
-
+/*
 	public boolean size()
 	{
 

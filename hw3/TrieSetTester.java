@@ -25,7 +25,9 @@ public class TrieSetTester
 					System.out.println("Please enter a number to delete: ");
 					d=reader.next();
 					test_num(d);
-					//testTree.delete_number(d);
+					boolean test = testTree.remove(d);
+					if(test==false)
+						System.out.println("Number is not in tree.");
 					break;
 				case 3:
 					//size();
