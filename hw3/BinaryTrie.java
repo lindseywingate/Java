@@ -118,12 +118,23 @@ public class BinaryTrie //implements Iterable<String>, TrieSet
 		
 		return true;		
 	}
-/*
-	public boolean size()
-	{
 
+	public int size()
+	{
+		int count=0;
+		count=visitNode(root);		
+		return count;
 	}
-	
+
+	public int visitNode(Node node)
+	{
+		if(node==null)
+			return 0;
+		if(node.getZero()==null && node.getOne()==null) 
+			return 1;
+		return visitNode(node.getZero())+visitNode(node.getOne());
+	}
+/*	
 	public String toString()
 	{
 

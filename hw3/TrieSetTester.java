@@ -30,7 +30,8 @@ public class TrieSetTester
 						System.out.println("Number is not in tree.");
 					break;
 				case 3:
-					//size();
+					int total_strings = testTree.size();
+					System.out.println("Your tree is holding "+total_strings+" strings.");
 					break;
 				case 4:
 					System.out.println("Please enter a search number: ");
