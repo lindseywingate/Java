@@ -6,15 +6,14 @@ import java.lang.*;
 
 public class SVPairList implements Iterable<SVPair>, PairList
 {
+	private SVPairList data;
 	private Node front = null;
 	private int size;
 	
-	public SVPairList() 
-	//set default key and default order
+	public SVPairList()
 	{
-
+		data = new SVPairList();
 	}
-
 /*	public SVPairList makeInstance(long seed, long[] params)
 	{
 		SVPairList different = new SVPairList();
@@ -178,8 +177,25 @@ public class SVPairList implements Iterable<SVPair>, PairList
 		return true;
 	}
 
-	public Iterator<SVPair> iterator() {
-		return null;
+	public Iterator<SVPair> iterator() { 
+		return new Iterator();
 	}
-
+	public class Iterator {
+	//	SVPair pair;
+		int index;
+		public Iterator() {
+			index = 0;
+		}
+		public boolean hasNext() {	
+			//as long as index is smaller than the amount in list, done			
+			return index < data.length();	
+		}
+		public SVPair next() {
+			return data.getElementAt(index);
+		}
+		public boolean remove() {
+		}
+	}
+	
+	
 }
