@@ -29,11 +29,11 @@ class SBT extends DecisionAlgorithm
 		paircount = pairlist.length();
 		sizesum = 0;
 		valuesum = 0;
-      for (SVPair pair: pairlist)
-      {
-         sizesum += pair.getSize();
-         valuesum += pair.getValue();
-      }
+//      for (SVPair pair: pairlist)
+  //    {
+    //     sizesum += pair.getSize();
+    //     valuesum += pair.getValue();
+    //  }
 		updateDefaults();
    }
 
